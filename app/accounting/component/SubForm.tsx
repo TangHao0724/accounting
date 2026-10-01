@@ -29,7 +29,7 @@ export default function SubForm(
         console.log("accounting",accounting);
         onAddAccounting(accounting);
     }
-    function handlePrice(e){
+    function handlePrice(e: React.ChangeEvent<HTMLInputElement>){
         const inputValue = e.target.value;
 
         // 2. 使用正規表達式只保留數字（0-9）
@@ -40,7 +40,7 @@ export default function SubForm(
         cleanValue = cleanValue.replace(/^0+/, '');
         }
 
-        setPrice(cleanValue);
+        setPrice(Number(cleanValue));
     }
 
     return(
