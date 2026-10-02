@@ -1,6 +1,6 @@
 import { User } from "firebase/auth";
 import {auth,db} from "../firebase/initialize"
-import { collection,getDoc, getDocs,addDoc,updateDoc ,setDoc,doc,deleteDoc} from "firebase/firestore"; 
+import { collection,getDoc, getDocs,addDoc,updateDoc ,setDoc,doc,deleteDoc, query, orderBy} from "firebase/firestore"; 
 
 export async function setbasicCats(userUid:string){
     const cats:AddCategory[]= [
@@ -33,7 +33,11 @@ export async function setRigisterData(user:User){
 export async function get_accounting(userUid:string){
 
     try{
-       const querySnapshot  =  await getDocs(collection(db,`users/${userUid}/accounting`))
+        const q = query(
+        collection(db, `users/${userUid}/accounting`),
+        orderBy("date", "desc")
+        );
+       const querySnapshot  =  await getDocs(q);
        const accountings:Accounting[] = querySnapshot.docs.map((i)=>{
             const data = i.data();
             return{

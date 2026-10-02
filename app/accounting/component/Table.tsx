@@ -33,7 +33,7 @@ export default function Table({tableData,dropRow,editRow}:TableProps){
         </table>
 
         <div className="max-h-150 overflow-y-auto">
-            <table className="w-full">
+            <table className="w-full  border-separate border-spacing-y-2 ">
             <tbody>
                 {tableData.map((i) => (
                 <TableRow

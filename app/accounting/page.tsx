@@ -98,7 +98,6 @@ export default function Accounting() {
               </button>
             </div>
             <h2 className=" max-w-2xl text-xl font-bold text-gray-400 bg-zinc-900 w-full p-2 rounded-xl">
-              檢索
             </h2>
           </div>
           <div className="w-full ">

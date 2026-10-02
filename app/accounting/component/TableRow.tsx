@@ -12,7 +12,7 @@ export default function TableRow({data,dropRow,editRow}:TableRowProps){
     const categories = CategoriesContext?.categories ?? [];
     const targetCat = categories.find((x)=> x.id === data.categoryId);
     return(
-        <tr className="text-center py-2">
+        <tr className="text-center py-1 text-lg">
             <th scope="row" className={targetCat?.ispaid ? "text-rose-400":"text-green-400"}>{data.price}</th>
             <td className={targetCat?.ispaid ? "text-rose-400":"text-green-400"}>{targetCat?.name}</td>
             <td className="text-start">{data.name}</td>
