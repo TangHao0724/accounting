@@ -1,6 +1,6 @@
 "use client"
 import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
-import { useEffect, useState } from 'react'
+import {useState } from 'react'
 
 import {createUserWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../firebase/initialize"
@@ -46,41 +46,42 @@ export default function RigiesterDialog(){
     return(
     <>
       <a
-        className="text-gray-400 flex items-end hover:text-gray-200 hover:underline hover:cursor-pointer" 
+        className="text-gray-500 flex items-end hover:text-gray-800 hover:dark:text-gray-200 hover:underline hover:cursor-pointer" 
         onClick={() => {setIsOpen(true);setAlertText("");}}
       >
         沒有帳戶？建立新帳戶
       </a>
-      <div
-        className="pointer-events-none fixed inset-0 z-999 grid h-screen w-screen place-items-center bg-black bg-opacity-60 opacity-0 backdrop-blur-sm transition-opacity duration-300"
-      >
-      </div>
+
       <Dialog open={isOpen} onClose={() => setIsOpen(false)} 
       className="
       relative 
       z-1000
       "
       >
+        <div
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+          aria-hidden="true"
+        />
         <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-          <DialogPanel className="max-w-lg space-y-4 rounded-xl shadow-xl bg-zinc-800 p-8 backdrop-blur-xs">
-            <DialogTitle className="max-w-xs text-2xl font-semibold leading-10 tracking-tight text-zinc-50">註冊新帳號</DialogTitle>
-            <Description>註冊新帳號，以記錄你所有的資訊</Description>
-            <form action="" className="gap-3 mb-4 ">
+          <DialogPanel className="max-w-lg space-y-4 rounded-xl shadow-xl bg-zinc-300 dark:bg-zinc-800 p-8 backdrop-blur-xs">
+            <DialogTitle className="max-w-xs text-2xl font-semibold leading-10 tracking-tight text-zinc-900 dark:text-zinc-100">註冊新帳號</DialogTitle>
+            <Description className="text-zinc-900 dark:text-zinc-100">註冊新帳號，以記錄你所有的資訊</Description>
+            <form action="" className=" flex flex-col gap-3 mb-4 ">
               <div className="py-1 gap-1  flex flex-col">
-                <label htmlFor="" className="text-md ">電子信箱：</label>
-                <input type="email" name="" id="" onChange={(event) => setEmail(event.target.value)} className="rounded-lg text-lg border-2 border-zinc-600 py-1.5 px-2 w-full" />
+                <label htmlFor="" className="text-md font-medium text-zinc-900 dark:text-zinc-100">電子信箱：</label>
+                <input type="email" name="" id="" onChange={(event) => setEmail(event.target.value)} className="rounded-lg text-lg border-2 border-zinc-600 py-1.5 px-2 w-full text-zinc-900 dark:text-zinc-100" />
               </div>
               <div className="py-1 gap-1  flex flex-col">
-                <label htmlFor="" className="text-md ">密碼：</label>
-                <input type="password" name="" id=""  onChange={(event) => setPassword(event.target.value)} className="rounded-lg text-xl border-2 border-zinc-600 py-1.5 px-2 w-full" />
+                <label htmlFor="" className="text-md font-medium text-zinc-900 dark:text-zinc-100">密碼：</label>
+                <input type="password" name="" id=""  onChange={(event) => setPassword(event.target.value)} className="rounded-lg text-xl border-2 border-zinc-600 py-1.5 px-2 w-full text-zinc-900 dark:text-zinc-100" />
               </div>
             </form>
             <span className="text-rose-600">{alertText}</span>
             <div className="flex gap-4 justify-between pt-2">
-              <button onClick={() => {sendRigister();} } className="flex h-12 w-xl  font-semibold items-center justify-center gap-1 rounded-xl bg-amber-500  px-2 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-39.5">
+              <button onClick={() => {sendRigister();} } className="flex h-12 w-xl font-semibold items-center justify-center gap-1 rounded-xl bg-amber-500 text-zinc-900  px-2 transition-colors hover:bg-zinc-600  dark:hover:bg-zinc-500 hover:text-amber-500 md:w-39.5">
                 註冊新帳號
               </button>
-              <button onClick={() => setIsOpen(false)} className='flex h-12 w-xl  font-semibold items-center justify-center gap-1 rounded-xl bg-foreground px-2 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-39.5'>
+              <button onClick={() => setIsOpen(false)} className='flex h-12 w-xl  font-semibold items-center justify-center gap-1 rounded-xl  px-2 transition-colors text-zinc-900 hover:text-zinc-100 bg-zinc-200  hover:bg-zinc-600 dark:hover:bg-zinc-500 dark:hover:text-zinc-100 md:w-39.5'>
                 關閉頁面
                 </button>
             </div>

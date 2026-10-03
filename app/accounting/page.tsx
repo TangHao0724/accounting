@@ -82,28 +82,27 @@ export default function Accounting() {
   }
   return (
     <CategoryProvider>
-      <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-gray-950 ">
-        <main className="flex flex-1 w-full max-w-3xl flex-col py-32 px-8 bg-white dark:bg-gray-950 items-start">
-
-          <div className="flex flex-col gap-2 sm:items-start text-left w-full">
-            <div className="bg-zinc-800 w-full flex flex-row items-center ">
-              <h1 className="text-4xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50   p-2 rounded-xl">
+      <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-zinc-800 ">
+        <main className="flex flex-1 w-full max-w-6xl flex-col py-32 px-8 bg-zinc-300 dark:bg-zinc-900 items-start gap-4 rounded-xl backdrop-blur-lg">
+          <div className="flex flex-col gap-2 sm:items-start text-left w-full ">
+            <div className="bg-zinc-100 dark:bg-zinc-800 w-full flex flex-row items-center rounded-xl">
+              <h1 className="text-4xl font-semibold leading-10 tracking-tight px-4 py-2 text-amber-600 dark:text-zinc-100">
                 {user.email} 的記帳本
               </h1>
               <button 
-              className="flex font-semibold h-9 w-12 items-center justify-center gap-1 rounded-xl bg-foreground px-2 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
+              className="flex font-semibold h-9 w-12 items-center justify-center gap-1 rounded-xl   px-2 bg-none dark:bg-zinc-400 transition-colors text-zinc-900  hover:bg-zinc-400 dark:hover:bg-zinc-200"
               onClick={logout}
               >
                 登出
               </button>
             </div>
-            <h2 className=" max-w-2xl text-xl font-bold text-gray-400 bg-zinc-900 w-full p-2 rounded-xl">
+            <h2 className=" max-w-2xl text-xl font-bold text-gray-400 bg-zinc-200 dark:bg-zinc-900 w-full p-2 rounded-xl">
             </h2>
           </div>
-          <div className="w-full ">
+          <div className="w-full pb-5">
             <Table tableData={tableData} editRow={(i,id)=>updateRow(user.uid,id,i)} dropRow={(i)=>deleteRow(user.uid,i)}/>
           </div>
-          <div className="w-full mt-auto">
+          <div className="w-full mb-auto">
               <SubForm onAddAccounting={(data) =>
                 addRow(user.uid,data)} />
           </div>

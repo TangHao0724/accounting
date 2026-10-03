@@ -24,10 +24,6 @@ export default function DeleDialog({isdele}:delediaprops){
             src="/remove.png" 
             alt="remove"/>
     </button>
-      <div
-        className="pointer-events-none fixed inset-0 z-999 grid h-screen w-screen place-items-center bg-black bg-opacity-60 opacity-0 backdrop-blur-sm transition-opacity duration-300"
-      >
-      </div>
       <Dialog open={isOpen} onClose={() => setIsOpen(false)} 
       className="
       relative 
@@ -35,14 +31,14 @@ export default function DeleDialog({isdele}:delediaprops){
       "
       >
         <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-          <DialogPanel className="max-w-lg space-y-4 rounded-xl shadow-xl bg-zinc-800 p-8 backdrop-blur-xs">
-            <DialogTitle className="max-w-xs text-2xl font-semibold leading-10 tracking-tight text-zinc-50">刪除這筆紀錄嗎？</DialogTitle>
-            <Description>刪除紀錄後，並不會留下任何痕跡。</Description>
+          <DialogPanel className="max-w-lg space-y-4 rounded-xl shadow-xl bg-zinc-300 dark:bg-zinc-800 p-8 backdrop-blur-lg">
+            <DialogTitle className="max-w-xs text-2xl font-semibold leading-10 tracking-tight text-zinc-900 dark:text-zinc-100">刪除這筆紀錄嗎？</DialogTitle>
+            <Description className="text-zinc-900 dark:text-zinc-100">刪除後，不會留下任何紀錄。</Description>
             <div className="flex gap-4 justify-between">
-              <button onClick={() => dele() } className="flex h-12 w-xl  font-semibold items-center justify-center gap-1 rounded-xl bg-foreground px-2 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-39.5">
+              <button onClick={() => dele() } className="flex h-12 w-xl  font-semibold items-center justify-center gap-1 rounded-xl bg-foreground text-background  bg-amber-500 text-zinc-900  px-2 transition-colors hover:bg-zinc-600  dark:hover:bg-zinc-500 hover:text-amber-500 md:w-39.5">
                 確定
               </button>
-              <button onClick={() => notDele()} className='hover:cursor-pointer hover:underline text-gray-400 flex items-end'>關閉頁面</button>
+              <button onClick={() => notDele()} className='flex h-12 w-xl  font-semibold items-center justify-center gap-1 rounded-xl  px-2 transition-colors text-zinc-900 bg-zinc-200 hover:bg-zinc-600 hover:text-zinc-100 dark:hover:bg-zinc-500 dark:hover:text-zinc-100 md:w-39.5'>關閉頁面</button>
             </div>
           </DialogPanel>
         </div>

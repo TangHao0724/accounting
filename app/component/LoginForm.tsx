@@ -41,26 +41,26 @@ export default function LoginForm(){
           });
       }
     return(
-        <div className="flex flex-col w-full md:w-md items-start justify-around bg-zinc-900  py-6 px-4 rounded-xl gap-3  ">
-          <h1 className="max-w-xs text-2xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+        <div className="flex flex-col w-full md:w-md items-start justify-around py-6 px-4 rounded-xl gap-3 border border-zinc-400 bg-zinc-200 dark:bg-zinc-900 ">
+          <h1 className="max-w-xs text-2xl font-semibold leading-10 tracking-tight text-zinc-900 dark:text-zinc-100">
             登入
           </h1>
-          <form action="" className="gap-3 mb-2">
+          <form action="" className=" flex flex-col gap-5 mb-2">
             <div className="py-1 gap-1  flex flex-col">
-              <label htmlFor="" className="text-md ">電子信箱：</label>
-              <input type="email" name="" id=""  onChange={(e)=> setEmail(e.target.value)} className="rounded-lg text-lg border-2 border-zinc-600 py-1.5 px-2 w-full" />
+              <label htmlFor="" className="text-md font-medium text-zinc-900 dark:text-zinc-100">電子信箱：</label>
+              <input type="email" name="" id=""  onChange={(e)=> setEmail(e.target.value)} className="rounded-lg text-lg font-sans border border-zinc-600 py-1.5 px-2 w-full text-zinc-900 dark:text-zinc-100" />
             </div>
             <div className="py-1 gap-1  flex flex-col">
-              <label htmlFor="" className="text-md ">密碼：</label>
-              <input type="password" name="" id="" onChange={(e)=> setPassword(e.target.value)} className="rounded-lg text-xl border-2 border-zinc-600 py-1.5 px-2 w-full" />
+              <label htmlFor="" className="text-md font-medium text-zinc-900 dark:text-zinc-100">密碼：</label>
+              <input type="password" name="" id="" onChange={(e)=> setPassword(e.target.value)} className="rounded-lg text-xl border border-zinc-600 py-1.5 px-2 w-full text-zinc-900 dark:text-zinc-100" />
             </div>
           </form>
           <span className="text-rose-600">{alertText}</span>
-          <hr className="w-full md:w-sm my-1 border-zinc-500 border-b-2"></hr>
+          <hr className="w-full md:w-sm my-1 border-zinc-500 border-b"></hr>
           <div className="flex flex-col gap-4 text-lg font-medium sm:flex-row">
             <button
-              className="flex h-12 w-full items-center justify-center  gap-2 rounded-xl bg-amber-500 px-2 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-39.5"
-              onClick={login}
+              className="flex h-12 w-full items-center justify-center  gap-2 rounded-xl bg-amber-500 px-2 text-zinc-900 transition-colors hover:bg-zinc-700 hover:text-amber-500 dark:hover:bg-zinc-500 md:w-39.5"
+              onClick={login} 
             >
               登入
               <Image

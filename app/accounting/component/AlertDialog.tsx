@@ -1,7 +1,5 @@
 "use client"
 import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
-import { useState } from 'react'
-import Image from "next/image";
 
 type alertprops = {
     showMessage:string;
